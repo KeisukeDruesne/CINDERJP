@@ -1,0 +1,22 @@
+body { background:#070707; color:#e9e9e9; font-family: 'Segoe UI', Arial, sans-serif; margin:0; padding:0; }
+.container { max-width:1000px; margin:30px auto; padding:20px; background:linear-gradient(180deg,#0f0f0f, #0b0b0b); border-radius:10px; box-shadow:0 6px 30px rgba(0,0,0,0.6); }
+header { display:flex; align-items:center; padding-bottom:10px; border-bottom:1px solid rgba(255,255,255,0.03); }
+.logo { height:60px; }
+.topnav { text-align:center; margin:14px 0; }
+.topnav a { color:#cfcfcf; text-decoration:none; margin:0 10px; font-weight:600; }
+.card { background: rgba(255,255,255,0.02); padding:18px; border-radius:8px; margin:18px 0; }
+h1, h2 { color:#fff; }
+.charter h1 { font-size:28px; margin-bottom:6px; }
+.charter .intro { color:#ddd; margin-bottom:12px; }
+ol { padding-left:18px; }
+.rules-form { text-align:center; margin-top:14px; }
+.primary { background:#b02a2a; color:#fff; padding:10px 14px; border:none; border-radius:6px; cursor:pointer; }
+.primary.large { padding:14px 20px; font-size:16px; }
+input, textarea { width:100%; padding:10px; border-radius:6px; border:1px solid rgba(255,255,255,0.06); background:#0b0b0b; color:#fff; }
+textarea { min-height:100px; }
+.flashes { list-style:none; padding:0; color:#ff6b6b; text-align:center; }
+footer { text-align:center; margin-top:20px; color:#888; font-size:14px; }
+.apps li { margin-bottom:10px; }
+.inline { display:inline; margin-left:6px; }
+.posts li { margin-bottom:10px; }
+.date { color:#aaa; font-size:12px; margin-right:6px; }
