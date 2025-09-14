@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cinder - プライベート</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo-wrap"><img src="{{ url_for('static', filename='logo.png') }}" alt="Cinder" class="logo"></div>
+    </header>
+    <nav class="topnav">
+      {% if session.get('username') %}
+        <a href="{{ url_for('dashboard') }}">ダッシュボード</a>
+        <a href="{{ url_for('members') }}">メンバー一覧</a>
+        <a href="{{ url_for('board') }}">掲示板</a>
+        <a href="{{ url_for('stats') }}">統計</a>
+        {% if session.get('role') == '管理者' %}<a href="{{ url_for('admin') }}">管理</a>{% endif %}
+        <a href="{{ url_for('logout') }}">ログアウト</a>
+      {% else %}
+        <a href="{{ url_for('index') }}">ログイン</a>
+        <a href="{{ url_for('apply') }}">申請</a>
+      {% endif %}
+    </nav>
+    <main>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul class="flashes">
+            {% for m in messages %}
+              <li>{{ m }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+      {% block content %}{% endblock %}
+    </main>
+    <footer>
+      <p>弱き者を守る。秘密と誇り。</p>
+    </footer>
+  </div>
+</body>
+</html>

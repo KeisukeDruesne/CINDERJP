@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="adminpanel card">
+  <h2>管理パネル</h2>
+  <h3>申請一覧</h3>
+  {% if apps %}
+    <ul class="apps">
+    {% for a in apps %}
+      <li>{{ a['created_at'] }} — <strong>{{ a['username'] }}</strong> — {{ a['message'] or '' }}
+        <form method="post" class="inline">
+          <input type="hidden" name="app_id" value="{{ a['id'] }}">
+          <button name="action" value="accept">承認</button>
+          <button name="action" value="reject">却下</button>
+        </form>
+      </li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <p>申請はありません。</p>
+  {% endif %}
+  <h3>統計</h3>
+  <p>登録メンバー数: {{ total }}</p>
+  <p>保留中の申請: {{ pending }}</p>
+  <h3>メンバー一覧</h3>
+  <ul>
+  {% for u in users %}
+    <li>{{ u[0] }} — 役割: {{ u[1] }} — 登録: {{ u[2] }} — ルール承認済み: {{ 'はい' if u[3] else 'いいえ' }}</li>
+  {% endfor %}
+  </ul>
+</section>
+{% endblock %}
